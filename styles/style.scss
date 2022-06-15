@@ -1,0 +1,132 @@
+/* import font from google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500&display=swap");
+@import "./variables";
+
+@mixin flexBox($direction, $wrap, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  font-family: "Red Hat Display", sans-serif;
+  background-color: $Pale-blue;
+
+  img {
+    width: 100%;
+    user-select: none;
+  }
+}
+
+.container {
+  width: 25%;
+  height: 78%;
+  background-color: $white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 1px 8px 40px $Desaturated-blue;
+  @include flexBox(column, nowrap, auto, center);
+
+  img {
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+  }
+  h2 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  p {
+    color: $Desaturated-blue;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .smallContainer {
+    width: 77%;
+    height: 60px;
+    border-radius: 10px;
+    background-color: $Very-pale-blue;
+    padding-inline: 20px;
+    margin-bottom: 20px;
+    @include flexBox(row, nowrap, space-between, center);
+
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    .text {
+      height: 80%;
+      font-weight: bold;
+      color: $Dark-blue;
+      margin-left: -20%;
+      @include flexBox(column, nowrap, space-between, center);
+
+      span {
+        color: $Desaturated-blue;
+        font-weight: 100;
+      }
+    }
+    a {
+      font-weight: 600;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+  }
+  .button {
+    width: 90%;
+    height: 50px;
+    background-color: $Bright-blue;
+    line-height: 50px;
+    font-weight: bold;
+    color: $white;
+    border-radius: 10px;
+    box-shadow: 1px 4px 20px $Desaturated-blue;
+    cursor: pointer;
+    user-select: none;
+    margin-bottom: 20px;
+
+    &:hover {
+      background-color: $light_blue;
+    }
+  }
+  > a {
+    color: $Desaturated-blue;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      color: $Dark-blue;
+    }
+  }
+}
+
+@media only screen and (max-width: 915px) {
+  .container {
+    width: 80%;
+    height: 60%;
+
+    .smallContainer .text {
+      margin-left: -6%;
+    }
+  }
+}
+
+@media only screen and (max-height: 750px) {
+  .container {
+    height: 75%;
+  }
+}
